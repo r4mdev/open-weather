@@ -3,4 +3,15 @@
     <string name="degree_symbol">°C</string>
     <string name="test_temp">23</string>
     <string name="test_day">Sunday, 18</string>
+    <string-array name="city_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+
 </resources>
