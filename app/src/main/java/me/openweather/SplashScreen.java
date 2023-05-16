@@ -21,11 +21,11 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 Intent i;
-                SharedPreferences pref = getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences pref = getSharedPreferences(String.valueOf(R.string.preference_file_key), Context.MODE_PRIVATE);
                 if(pref.getBoolean("activity_executed",false)){
-                    i = new Intent(getApplicationContext(), GetStart.class);
-                } else {
                     i = new Intent(getApplicationContext(), HomeActivity.class);
+                } else {
+                    i = new Intent(getApplicationContext(), GetStart.class);
                 }
                 startActivity(i);
                 finish();

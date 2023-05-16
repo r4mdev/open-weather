@@ -26,6 +26,8 @@ public class GetStart extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i;
+                SharedPreferences pref = getSharedPreferences(String.valueOf(R.string.preference_file_key), Context.MODE_PRIVATE);
+                pref.edit().putBoolean("activity_executed", true).commit();
                 i = new Intent(getApplicationContext(), PlacesScreen.class);
                 startActivity(i);
                 finish();
