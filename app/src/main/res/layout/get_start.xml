@@ -1,0 +1,63 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:background="#FFFFFF"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/img_linear"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:padding="8dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal">
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
+                android:layout_centerInParent="true"
+                app:lottie_fileName="your_file.json"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:gravity="center_horizontal"
+            android:text="Discover the Weather in Your City"
+            android:textSize="30sp"
+            android:textColor="#424242" />
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:gravity="center_horizontal"
+            android:text="Get to know your weather maps and radar percipitation forecast"
+            android:textSize="18sp"
+            android:textColor="#424242" />
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75dp"
+            android:padding="8dp"
+            android:background="#424242"
+            android:text="Get Started"
+            android:textSize="12sp"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</LinearLayout>
