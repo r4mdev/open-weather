@@ -1,13 +1,15 @@
 package me.openweather;
 
+import static android.app.PendingIntent.getActivity;
+
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
-import me.openweather.*;
-import me.openweather.R;
 
 @SuppressLint("CustomSplashScreen")
 public class SplashScreen extends AppCompatActivity {
@@ -18,9 +20,17 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                Intent i;
+                SharedPreferences pref = getPreferences(Context.MODE_PRIVATE);
+                if(pref.getBoolean("activity_executed",false)){
+                    i = new Intent(getApplicationContext(), GetStart.class);
+                } else {
+                    i = new Intent(getApplicationContext(), HomeActivity.class);
+                }
                 startActivity(i);
+                finish();
             }
-        }, 4500);
-    }
+        }, 3500);
+
+    };
 }

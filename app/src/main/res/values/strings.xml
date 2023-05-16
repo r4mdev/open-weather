@@ -13,5 +13,5 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
-
+    <string name="getstart">true</string>
 </resources>

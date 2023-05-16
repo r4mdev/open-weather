@@ -33,7 +33,12 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
         <activity
-            android:name=".GetStarted"
+            android:name=".GetStart"
+            android:exported="true"
+            android:theme="@style/Theme.Design.NoActionBar">
+        </activity>
+        <activity
+            android:name=".PlacesScreen"
             android:exported="true"
             android:theme="@style/Theme.Design.NoActionBar">
         </activity>
