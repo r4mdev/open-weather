@@ -55,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
         sunrise_linear.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)15, 0xFFE0E0E0));
         sunset_linear.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)15, 0xFFE0E0E0));
 
-        FetchData fetch = new FetchData();
+        FetchData fetch = new FetchData(getApplicationContext());
         fetch.fetchJsonData();
     }
 

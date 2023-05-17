@@ -27,6 +27,10 @@ public class FetchData {
     Integer weather_code;
     Boolean is_day;
 
+    FetchData(Context context) {
+        this.context = context;
+    }
+
     ArrayList<String> nxt_10_weather = new ArrayList<>();
 
     final String[] JsonData = new String[1];
