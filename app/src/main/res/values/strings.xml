@@ -9,4 +9,7 @@
     </string-array>
     <string name="getstart">true</string>
     <string name="preference_file_key">getstarted_key</string>
+    <string name="app_label">Searchable App Label</string>
+    <string name="search_hint">Searchable Search Hint</string>
+    <string name="action_settings">Settings</string>
 </resources>
