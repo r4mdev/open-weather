@@ -1,6 +1,7 @@
 package me.openweather;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -17,16 +18,6 @@ import java.util.Map;
 
 
 public class FetchData {
-
-    String temperature;
-    String windspeed;
-    String humidity;
-    String sunrise;
-    String sunset;
-    Integer weather_code;
-    Boolean is_day;
-
-    ArrayList<String> nxt_10_weather = new ArrayList<>();
 
     final String[] JsonData = new String[1];
     Context context;
@@ -50,52 +41,32 @@ public class FetchData {
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
-                System.out.println(CityData);
             }
         },
                 error -> {
-                    Toast toast = Toast.makeText(context, "Failed to fetch data", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(context, "Failed to  fetch city data", Toast.LENGTH_SHORT);
                     toast.show();
                 });
         queue.add(strReq);
     }
 
     FetchData(Context context ,Float lat, Float lng) {
-        String URL = "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lng + "&hourly=temperature_2m";
+        this.URL = "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lng + "&current_weather=true&daily=apparent_temperature_max,weathercode,sunrise,sunset&timezone=Asia/Kolkata";
+        Log.d("APP", URL);
     }
 
-    public String fetchJsonData() {
-        final String[] JsonData = new String[1];
-        RequestQueue queue = Volley.newRequestQueue(this.context);
+    public String fetchJsonData(Context context) {
+        final String[] JsonData = {new String()};
+        RequestQueue queue = Volley.newRequestQueue(context);
 
         // request
         StringRequest stringRequest = new StringRequest(Request.Method.GET, this.URL,
                 new Response.Listener<String>() {
+
                     @Override
-                    public void onResponse(String response) {
-
+                    public synchronized void onResponse(String response) {
                         JsonData[0] = response.toString();
-                        try {
-                            JSONObject Weather_Json = new JSONObject(JsonData[0]);
-                            JSONObject Current_weather = Weather_Json.getJSONObject("current_weather");
-
-                            temperature = String.valueOf(Current_weather.getDouble("temperature"));
-                            windspeed = String.valueOf(Current_weather.getDouble("windspeed"));
-                            humidity = String.valueOf(Current_weather.getDouble("winddirection"));
-                            is_day = Current_weather.getBoolean("is_day");
-                            weather_code = Current_weather.getInt("weathercode");
-
-
-                            System.out.println(temperature);
-                            System.out.println(windspeed);
-                            System.out.println(humidity);
-
-                            // is_day = Current_weather.getBoolean("is_day");
-                        } catch (JSONException e) {
-                            throw new RuntimeException(e);
-                        }
-
-
+                        Log.d("APP", "Response: " + response.toString());
                     }
                 },
                 error -> {
