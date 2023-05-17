@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +24,8 @@ public class GetStart extends AppCompatActivity {
         ed.apply();
         
         Button btn = (Button) findViewById(R.id.get_start_btn);
+        btn.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b) { this.setCornerRadius(a); this.setColor(b); return this; } }.getIns((int)15, 0xFFE0E0E0));
+
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i;

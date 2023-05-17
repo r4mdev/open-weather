@@ -189,10 +189,9 @@
                             android:layout_margin="5dp"
                             android:layout_weight="1"
                             android:background="#E0E0E0"
-                            android:gravity="left|center_vertical"
+                            android:gravity="center_vertical"
                             android:orientation="horizontal"
-                            android:padding="5dp"
-                            android:weightSum="1">
+                            android:padding="5dp">
 
                             <ImageView
                                 android:id="@+id/humidity"
