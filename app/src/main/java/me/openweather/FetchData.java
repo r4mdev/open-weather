@@ -16,6 +16,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Map;
 
+import kotlin.jvm.Synchronized;
+
 
 public class FetchData {
 
@@ -50,7 +52,7 @@ public class FetchData {
         queue.add(strReq);
     }
 
-    FetchData(Context context ,Float lat, Float lng) {
+    FetchData(Context context, Float lat, Float lng) {
         this.URL = "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lng + "&current_weather=true&daily=apparent_temperature_max,weathercode,sunrise,sunset&timezone=Asia/Kolkata";
         Log.d("APP", URL);
     }
