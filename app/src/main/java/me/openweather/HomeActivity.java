@@ -1,6 +1,9 @@
 package me.openweather;
 
+<<<<<<< HEAD
 import android.annotation.SuppressLint;
+=======
+>>>>>>> baa3d821a7a921d9ca756a8b1c37136564449416
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
@@ -59,7 +62,7 @@ public class HomeActivity extends AppCompatActivity {
 
         try {
             initialLogic();
-            weatherLogic();
+             weatherLogic();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -194,6 +197,8 @@ public class HomeActivity extends AppCompatActivity {
         Log.d("APP", "HomeAcivitiy: " + this.JsonData);
 
         try {
+            this.JsonData = "{\"latitude\":30.75,\"longitude\":76.625,\"generationtime_ms\":0.2429485321044922,\"utc_offset_seconds\":19800,\"timezone\":\"Asia/Kolkata\",\"timezone_abbreviation\":\"IST\",\"elevation\":312.0,\"current_weather\":{\"temperature\":28.8,\"windspeed\":2.3,\"winddirection\":108.0,\"weathercode\":63,\"is_day\":0,\"time\":\"2023-05-17T23:30\"},\"daily_units\":{\"time\":\"iso8601\",\"apparent_temperature_max\":\"°C\",\"weathercode\":\"wmo code\",\"sunrise\":\"iso8601\",\"sunset\":\"iso8601\"},\"daily\":{\"time\":[\"2023-05-17\",\"2023-05-18\",\"2023-05-19\",\"2023-05-20\",\"2023-05-21\",\"2023-05-22\",\"2023-05-23\"],\"apparent_temperature_max\":[40.5,39.1,40.4,41.3,42.7,45.1,43.4],\"weathercode\":[3,80,1,2,1,1,80],\"sunrise\":[\"2023-05-17T05:26\",\"2023-05-18T05:25\",\"2023-05-19T05:25\",\"2023-05-20T05:24\",\"2023-05-21T05:24\",\"2023-05-22T05:23\",\"2023-05-23T05:23\"],\"sunset\":[\"2023-05-17T19:13\",\"2023-05-18T19:14\",\"2023-05-19T19:14\",\"2023-05-20T19:15\",\"2023-05-21T19:15\",\"2023-05-22T19:16\",\"2023-05-23T19:17\"]}}\n";
+
             JSONObject Weather_Json = new JSONObject(this.JsonData);
             JSONObject Current_weather = Weather_Json.getJSONObject("current_weather");
 
@@ -215,3 +220,4 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 }
+
