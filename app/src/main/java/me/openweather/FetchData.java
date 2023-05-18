@@ -53,22 +53,26 @@ public class FetchData {
     }
 
     FetchData(Context context, Float lat, Float lng) {
+        this.context = context;
         this.URL = "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lng + "&current_weather=true&daily=apparent_temperature_max,weathercode,sunrise,sunset&timezone=Asia/Kolkata";
         Log.d("APP", URL);
     }
 
-    public String fetchJsonData(Context context) {
+    RequestQueue queue;
+
+    public void fetchJsonData(Context context) {
+        queue = Volley.newRequestQueue(context);
         final String[] JsonData = {new String()};
-        RequestQueue queue = Volley.newRequestQueue(context);
 
         // request
         StringRequest stringRequest = new StringRequest(Request.Method.GET, this.URL,
                 new Response.Listener<String>() {
 
                     @Override
-                    public synchronized void onResponse(String response) {
+                    public void onResponse(String response) {
                         JsonData[0] = response.toString();
                         Log.d("APP", "Response: " + response.toString());
+                        FetchData.this.onResponse(response.toString());
                     }
                 },
                 error -> {
@@ -76,6 +80,6 @@ public class FetchData {
                     toast.show();
                 });
         queue.add(stringRequest);
-        return JsonData[0];
     }
+    public void onResponse(String response) {}
 }
