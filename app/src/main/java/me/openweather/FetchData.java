@@ -13,10 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.Map;
-
-import kotlin.jvm.Synchronized;
 
 
 public class FetchData {
@@ -39,7 +36,8 @@ public class FetchData {
                     JSONObject city = new JSONObject((Map) cities.getJSONObject(0));
                     float lat = (float) city.getDouble("latitude");
                     float lng = (float) city.getDouble("longitude");
-                    URL = "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lng + "&hourly=temperature_2m";
+                    URL = "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lng + "&current_weather=true&daily=apparent_temperature_max,weathercode,sunrise,sunset&timezone=Asia/Kolkata";
+                    Log.d("APP", URL);
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
