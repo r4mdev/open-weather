@@ -4,14 +4,8 @@
     <string name="test_temp">23</string>
     <string name="test_day">Sunday, 18</string>
     <string-array name="city_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>Chandigarh</item>
+        <item>Gharuan</item>
     </string-array>
     <string name="getstart">true</string>
     <string name="preference_file_key">getstarted_key</string>
